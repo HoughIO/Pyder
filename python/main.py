@@ -8,6 +8,7 @@ class Site():
     """Initialize name attributes."""
     self.name = name
 
+
   def config(self):
     """A config generator based on inputted params"""
     self.firstName = input("First Name: ")
@@ -36,18 +37,15 @@ class Site():
     f = open('../_site/config.yml', 'w')
     f.write(output)
 
-  def directoryDraw(self, name):
-    if isinstance(name, str):
-      os.mkdir(name)
-      os.mkdir(name + '/posts')
-      os.mkdir(name + '/_site')
-      os.mkdir(name + '/themes/')
-      os.mkdir(name + '/themes/default')
-      os.mkdir(name + '/themes/default/css')
-      os.mkdir(name + '/themes/default/js')
-      os.mkdir(name + '/pages')
-      os.mkdir(name + '/img')
-    else:
-      print("Error: name of folder must be a string.\n")
+  def directoryDraw(self):
+    os.mkdir(self.name)
+    os.mkdir(self.name + '/posts')
+    os.mkdir(self.name + '/_site')
+    os.mkdir(self.name + '/themes/')
+    os.mkdir(self.name + '/themes/default')
+    os.mkdir(self.name + '/themes/default/css')
+    os.mkdir(self.name + '/themes/default/js')
+    os.mkdir(self.name + '/pages')
+    os.mkdir(self.name + '/img')
 
       
