@@ -42,9 +42,6 @@ class Site():
     os.mkdir(self.name + '/posts')
     os.mkdir(self.name + '/_site')
     os.mkdir(self.name + '/themes/')
-    os.mkdir(self.name + '/themes/default')
-    os.mkdir(self.name + '/themes/default/css')
-    os.mkdir(self.name + '/themes/default/js')
     os.mkdir(self.name + '/pages')
     os.mkdir(self.name + '/img')
 
