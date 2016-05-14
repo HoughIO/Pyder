@@ -8,7 +8,6 @@ class Site():
     """Initialize name attributes."""
     self.name = name
 
-
   def config(self):
     """A config generator based on inputted params"""
     self.firstName = input("First Name: ")
@@ -17,10 +16,7 @@ class Site():
     self.twitter = input("Twitter @: ")
     self.title = input("Site Title: ")
     self.domain = input("Domain: ")
-    inputTheme = input("Theme (blank for default): ")
-    if  inputTheme == '':
-      inputTheme = "default"
-    self.theme = inputTheme
+    self.theme = "default"
 
   def configDraw(self):
     """Creates the config.yml file and saves it."""
@@ -48,4 +44,3 @@ class Site():
     os.mkdir(self.name + '/pages')
     os.mkdir(self.name + '/img')
 
-      
