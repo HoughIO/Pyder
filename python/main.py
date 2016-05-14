@@ -1,4 +1,7 @@
+import os
+
 class Site():
+
   """A simple python website generator."""
 
   def __init__(self, name):
@@ -33,3 +36,18 @@ class Site():
     f = open('../_site/config.yml', 'w')
     f.write(output)
 
+  def directoryDraw(self, name):
+    if isinstance(name, str):
+      os.mkdir(name)
+      os.mkdir(name + '/posts')
+      os.mkdir(name + '/_site')
+      os.mkdir(name + '/themes/')
+      os.mkdir(name + '/themes/default')
+      os.mkdir(name + '/themes/default/css')
+      os.mkdir(name + '/themes/default/js')
+      os.mkdir(name + '/pages')
+      os.mkdir(name + '/img')
+    else:
+      print("Error: name of folder must be a string.\n")
+
+      
