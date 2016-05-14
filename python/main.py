@@ -38,9 +38,28 @@ class Site():
     os.mkdir(self.name + '/posts')
     os.mkdir(self.name + '/_site')
     os.mkdir(self.name + '/themes/')
-    os.mkdir(self.name + '/themes/default')
-    os.mkdir(self.name + '/themes/default/css')
-    os.mkdir(self.name + '/themes/default/js')
     os.mkdir(self.name + '/pages')
     os.mkdir(self.name + '/img')
 
+  def siteDraw(self):
+    html = []
+    themePath = 'themes/{self.theme}/'
+    with open("{themePath}/head.html", "r") as head:
+      for line in head:
+        html.append(line)
+    html.append("<body>")
+    with open("{themePath}/header.html", "r") as header:
+      for line in header:
+        html.append(line)
+    with open("{themePath}/body.html", "r") as body:
+      for line in body:
+        html.append(line)
+    with open("themePath}/footer.html", "r") as footer:
+      for line in footer:
+        html.append(line)
+    html.append("</body>")
+    html.append("</html>")
+    f = open("index.html", "w")
+    for item in html:
+      f.write("{item} \n")
+    f.close()
