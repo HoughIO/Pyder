@@ -25,3 +25,8 @@ Generates:
               /about.md
               /contact.md
               /landing.md
+        /img/
+            /vacation.jpeg
+            /omg.gif
+            /house.png
+            /favicon
