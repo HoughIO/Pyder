@@ -47,7 +47,7 @@ class Site():
 
   def siteDraw(self):
     html = []
-    themePath = 'themes/{self.them}/'
+    themePath = 'themes/{self.theme}/'
     with open("{themePath}/head.html", "r") as head:
       for line in head:
         html.append(line)
