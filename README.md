@@ -2,7 +2,7 @@
 `$ pyder new "Blog"`
 
 Generates:
-
+`
 Blog/
     /_site/
           /config.yml
@@ -28,4 +28,4 @@ Blog/
           /about.md
           /contact.md
           /landing.md
-
+`
