@@ -1,5 +1,6 @@
 import os
 import shutil
+import sys
 
 class Site():
 
@@ -8,7 +9,8 @@ class Site():
   def __init__(self, name):
     """Initialize name attributes."""
     self.name = name
-    self.pwd = str(os.getcwd())
+    # this gets the directory builder.py is running in, and chops off '/python/builder.py'
+    self.pyderPath = os.path.realpath(__file__)[0:-18]
 
   def config(self):
     """A config generator based on inputted params"""
@@ -29,9 +31,8 @@ class Site():
     self.title = ''
     self.domain = ''
     self.theme = "default"
-
-    f = open(self.name + '/config.yml', 'w')
-    f.close()
+    
+    open(self.name + "/config.yml", 'a').close()
 
   def configDraw(self):
     """Creates the config.yml file and saves it."""
@@ -50,11 +51,10 @@ class Site():
 
   def directoryDraw(self):
     os.mkdir(self.name)
+    os.mkdir(self.name + '/config')
     os.mkdir(self.name + '/posts')
     os.mkdir(self.name + '/_site')
     # copy default pages and themes from pyder into the site
-    # this gets the directory builder.py is running in, and chops off '/python/builder.py'
-    self.pyderPath = os.path.realpath(__file__)[0:-18]
     print("Copying site defaults from " + self.pyderPath)
     shutil.copytree(self.pyderPath + '/default/pages/', self.name + '/pages')
     shutil.copytree(self.pyderPath + '/default/themes/', self.name + '/themes')
@@ -62,11 +62,11 @@ class Site():
 
   def siteDraw(self):
     html = []
-    token = self.currentPath.split('/').pop()
+    token = os.getcwd().split('/').pop()
     if token != self.name:
       print("You must be in your site's root directory to generate HTML.")
       sys.exit()
-    themePath = str(self.currentPath + '/themes/' + self.theme + '/')
+    themePath = str(os.getcwd() + '/themes/' + self.theme + '/')
     with open(str(themePath) + "/head.html", "r") as head:
       for line in head:
         html.append(line)
