@@ -1,4 +1,5 @@
 import os
+import shutil
 
 class Site():
 
@@ -52,7 +53,12 @@ class Site():
     os.mkdir(self.name + '/posts')
     os.mkdir(self.name + '/_site')
     os.mkdir(self.name + '/themes/')
-    os.mkdir(self.name + '/pages')
+    # copy default pages and themes from pyder into the site
+    # this gets the directory builder.py is running in, and chops off '/python/builder.py'
+    self.pyderPath = os.path.realpath(__file__)[0:-18]
+    print("Copying site defaults from " + self.pyderPath)
+    shutil.copytree(self.pyderPath + '/default/pages/', self.name + '/pages')
+    shutil.copytree(self.pyderPath + '/default/themes/', self.name + '/themes')
     os.mkdir(self.name + '/img')
 
   def siteDraw(self):
