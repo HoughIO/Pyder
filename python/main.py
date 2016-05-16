@@ -17,19 +17,53 @@ from builder import *
 # In this case, Pyder will generate a new post, resync the
 # generated HTML files. STRING is the post's title.
 
-if len(sys.argv) == 3:
-  arg1 = str(sys.argv[1])
+def help():
+  print("""
+    Hello! Welcome to Pyder.
+    Usage:
+      Pyder new STRING
+        Where STRING is the title of your site.
+      
+      Pyder help
+        Prints these docs
+
+    Flag options:
+      --no-config       
+        Generates the site without prompting to fill out a config.yml file.
+
+    @2016 Graham Hough, Ethan Miller
+    """)
+  sys.exit()
+
+if len(sys.argv) == 2:
+  if str(sys.argv[1]).title() == "Help":
+    print(help())
+  if str(sys.argv[1]).title() == "H":
+    print(help())
+
+elif len(sys.argv) == 3:
+  if str(sys.argv[1]).title() != "Post" and str(sys.argv[1]).title() != "New":
+    print(help())
+  else:
+    arg1 = str(sys.argv[1])
+
   arg2 = str(sys.argv[2])
 
-if len(sys.argv) == 4:
-  arg1 = str(sys.argv[1])
+elif len(sys.argv) == 4:
+  if str(sys.argv[1]).title() != "Post" and str(sys.argv[1]).title() != "New":
+    print(help())
+  else:
+    arg1 = str(sys.argv[1])
+
   arg2 = str(sys.argv[2])
   if str(sys.argv[3]) == "--no-config":
     arg3 = str(sys.argv[3])
   else:
     print("Invalid flag option")
+    print(help())
 else:
   print("Incorrect arguments, please refer to the docs.")
+  print(help())
 
 if 'arg1' in locals() and 'arg2' in locals() and arg1 == "new":
   projectTitle = arg2
@@ -38,7 +72,8 @@ if 'arg1' in locals() and 'arg2' in locals() and arg1 == "new":
   newSite.directoryDraw()
   if 'arg3' in locals() and arg3 == '--no-config':
     print("Please fill out config.yml in your sites directory")
-
+    newSite.noConfigDraw()
+    newSite.configDraw()
   else:
     newSite.config()
     newSite.configDraw()
