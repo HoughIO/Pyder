@@ -20,6 +20,8 @@ from builder import *
 if len(sys.argv) == 3:
   arg1 = str(sys.argv[1])
   arg2 = str(sys.argv[2])
+  arg3 = str(sys.argv[3])
+
 else:
   print("Incorrect arguments, please refer to the docs.")
 
@@ -27,6 +29,10 @@ if 'arg1' in locals() and 'arg2' in locals() and arg1 == "new":
   projectTitle = arg2
   print('New blog will be generated as ' + str(arg2))
   newSite = Site(str(arg2))
-  newSite.config()
-  newSite.configDraw()
   newSite.directoryDraw()
+  if 'arg3' in locals() and arg3 == '--no-config':
+    print("Please fill out config.yml in your sites directory")
+
+  else:
+    newSite.config()
+    newSite.configDraw()

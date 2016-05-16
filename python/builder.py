@@ -30,7 +30,7 @@ class Site():
     output += str("Domain:\n\t" + self.domain + "\n\n")
     output += str("Theme:\n\t" + self.theme + "\n\n")
 
-    f = open('../_site/config.yml', 'w')
+    f = open(self.name + '/config.yml', 'w')
     f.write(output)
 
   def directoryDraw(self):
