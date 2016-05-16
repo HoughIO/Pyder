@@ -14,7 +14,7 @@ class Post():
 
     self.genDate = str(time.strftime("%d.%m.%Y"))
 
-    self.author = author.upper()
+    self.author = author.title()
 
     self.postsMadeToday = os.path.exists(os.getcwd() + '/posts/' + self.genDate)
 
