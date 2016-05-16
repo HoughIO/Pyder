@@ -20,8 +20,14 @@ from builder import *
 if len(sys.argv) == 3:
   arg1 = str(sys.argv[1])
   arg2 = str(sys.argv[2])
-  arg3 = str(sys.argv[3])
 
+if len(sys.argv) == 4:
+  arg1 = str(sys.argv[1])
+  arg2 = str(sys.argv[2])
+  if str(sys.argv[3]) == "--no-config":
+    arg3 = str(sys.argv[3])
+  else:
+    print("Invalid flag option")
 else:
   print("Incorrect arguments, please refer to the docs.")
 
