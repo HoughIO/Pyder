@@ -38,7 +38,8 @@ if 'arg1' in locals() and 'arg2' in locals() and arg1 == "new":
   newSite.directoryDraw()
   if 'arg3' in locals() and arg3 == '--no-config':
     print("Please fill out config.yml in your sites directory")
-
+    newSite.noConfigDraw()
+    newSite.configDraw()
   else:
     newSite.config()
     newSite.configDraw()

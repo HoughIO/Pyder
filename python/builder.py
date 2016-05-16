@@ -18,6 +18,16 @@ class Site():
     self.domain = input("Domain: ")
     self.theme = "default"
 
+  def noConfigDraw(self):
+    """Creates config.yml, but does not ask for input"""
+    self.firstName = ''
+    self.lastName = ''
+    self.email = ''
+    self.twitter = ''
+    self.title = ''
+    self.domain = ''
+    self.theme = "default"
+
   def configDraw(self):
     """Creates the config.yml file and saves it."""
     output = ''
