@@ -48,7 +48,7 @@ def findCallType(argument):
       newPost = Post(argument[1])
     else:
       print(help())
-  elif len(arguments) == 3:
+  elif len(argument) == 3:
       if argument[2] == "--no-config":
         newSite = Site(argument[1])
         newSite.directoryDraw()
