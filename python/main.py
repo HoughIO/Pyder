@@ -21,7 +21,7 @@ if len(sys.argv) == 3:
   arg1 = str(sys.argv[1])
   arg2 = str(sys.argv[2])
 
-if len(sys.argv) == 4:
+elif len(sys.argv) == 4:
   arg1 = str(sys.argv[1])
   arg2 = str(sys.argv[2])
   if str(sys.argv[3]) == "--no-config":
