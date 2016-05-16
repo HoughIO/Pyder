@@ -31,7 +31,13 @@ def help():
     """)
   sys.exit()
 
-if len(sys.argv) == 3:
+if len(sys.argv) == 2:
+  if str(sys.argv[1]).title() == "Help":
+    print(help())
+  if str(sys.argv[1]).title() == "H":
+    print(help())
+
+elif len(sys.argv) == 3:
   if str(sys.argv[1]).title() != "Post" and str(sys.argv[1]).title() != "New":
     print(help())
   else:
