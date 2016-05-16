@@ -52,7 +52,6 @@ class Site():
     os.mkdir(self.name)
     os.mkdir(self.name + '/posts')
     os.mkdir(self.name + '/_site')
-    os.mkdir(self.name + '/themes/')
     # copy default pages and themes from pyder into the site
     # this gets the directory builder.py is running in, and chops off '/python/builder.py'
     self.pyderPath = os.path.realpath(__file__)[0:-18]
