@@ -20,12 +20,16 @@ from builder import *
 def help():
   print("""
     Hello! Welcome to Pyder.
-    USAGE: Pyder new STRING
-    Where STRING is the title of your site.
+    Usage:
+      Pyder new STRING
+        Where STRING is the title of your site.
+      
+      Pyder help
+        Prints these docs
 
     Flag options:
-    --no-config       
-      Generates the site without prompting to fill out a config.yml file.
+      --no-config       
+        Generates the site without prompting to fill out a config.yml file.
 
     @2016 Graham Hough, Ethan Miller
     """)
