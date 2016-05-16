@@ -23,7 +23,3 @@ class Post():
     content += str("###### By " + self.author + "\n\n")
     f.write(content)
 
-
-
-
-    
