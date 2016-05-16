@@ -68,6 +68,7 @@ else:
 if 'arg1' in locals() and 'arg2' in locals() and arg1 == "new":
   projectTitle = arg2
   print('New blog will be generated as ' + str(arg2))
+  #Site's self.name is passed below.
   newSite = Site(str(arg2))
   newSite.directoryDraw()
   if 'arg3' in locals() and arg3 == '--no-config':
