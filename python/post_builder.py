@@ -18,15 +18,15 @@ class Post():
 
     self.postsMadeToday = os.path.exists(os.getcwd() + '/posts/' + self.genDate)
 
-    if postsMadeToday == True:
-      f = open(('posts/' + self.genDate + fileTitle + '.md'), 'w')
+    if self.postsMadeToday == True:
+      f = open(('posts/' + self.genDate + '/' + self.fileTitle + '.md'), 'w')
       content = ''
       content += str("#" + self.title + "\n\n")
       content += str("###### By " + self.author + "\n\n")
       f.write(content)
     else:
       os.mkdir('posts/' + self.genDate)
-      f = open(('posts/' + self.genDate + fileTitle + '.md'), 'w')
+      f = open(('posts/' + self.genDate + '/' + self.fileTitle + '.md'), 'w')
       content = ''
       content += str("#" + self.title + "\n\n")
       content += str("###### By " + self.author + "\n\n")
