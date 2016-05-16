@@ -51,7 +51,6 @@ class Site():
 
   def directoryDraw(self):
     os.mkdir(self.name)
-    os.mkdir(self.name + '/config')
     os.mkdir(self.name + '/posts')
     os.mkdir(self.name + '/_site')
     # copy default pages and themes from pyder into the site
