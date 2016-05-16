@@ -1,5 +1,5 @@
 import sys
-#from .site import Site
+from builder import *
 
 #For refrence, line 6 lists the number of arguments by calling for the length of the arguemnt list.
 #Line 7 prints the list of objects as a refrenceable string.
@@ -26,3 +26,7 @@ else:
 if 'arg1' in locals() and 'arg2' in locals() and arg1 == "new":
   projectTitle = arg2
   print('New blog will be generated as ' + str(arg2))
+  newSite = Site(str(arg2))
+  newSite.config()
+  newSite.configDraw()
+  newSite.directoryDraw()
