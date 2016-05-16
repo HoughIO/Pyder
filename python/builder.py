@@ -59,12 +59,14 @@ class Site():
     shutil.copytree(self.pyderPath + '/default/themes/', self.name + '/themes')
     os.mkdir(self.name + '/img')
 
+  # generate html from the site's theme, the pages, and the posts.
+  # put site into _site directory.
   def siteDraw(self):
     html = []
     token = os.getcwd().split('/').pop()
     if token != self.name:
       print("You must be in your site's root directory to generate HTML.")
-      sys.exit()
+      return
     themePath = str(os.getcwd() + '/themes/' + self.theme + '/')
     with open(str(themePath) + "/head.html", "r") as head:
       for line in head:
@@ -81,7 +83,11 @@ class Site():
         html.append(line)
     html.append("</body>")
     html.append("</html>")
-    f = open("index.html", "w")
+    f = open("_site/index.html", "w")
     for item in html:
       f.write(str(item + "\n"))
     f.close()
+    shutil.copytree(themePath + '/css', os.getcwd() + '/_site/css')
+    shutil.copytree(themePath + '/js', os.getcwd() + '/_site/js')
+    shutil.copytree(themePath + '/font', os.getcwd() + '/_site/font')
+    
