@@ -7,7 +7,6 @@ class Site():
   def __init__(self, name):
     """Initialize name attributes."""
     self.name = name
-    self.pwd = str(os.getcwd())
 
   def config(self):
     """A config generator based on inputted params"""
@@ -28,9 +27,6 @@ class Site():
     self.title = ''
     self.domain = ''
     self.theme = "default"
-
-    f = open(self.name + '/config.yml', 'w')
-    f.close()
 
   def configDraw(self):
     """Creates the config.yml file and saves it."""
@@ -57,27 +53,23 @@ class Site():
 
   def siteDraw(self):
     html = []
-    token = self.currentPath.split('/').pop()
-    if token != self.name:
-      print("You must be in your site's root directory to generate HTML.")
-      sys.exit()
-    themePath = str(self.currentPath + '/themes/' + self.theme + '/')
-    with open(str(themePath) + "/head.html", "r") as head:
+    themePath = 'themes/{self.theme}/'
+    with open("{themePath}/head.html", "r") as head:
       for line in head:
         html.append(line)
     html.append("<body>")
-    with open(str(themePath + '/header.html'), "r") as header:
+    with open("{themePath}/header.html", "r") as header:
       for line in header:
         html.append(line)
-    with open(str(themePath + '/body.html'), "r") as body:
+    with open("{themePath}/body.html", "r") as body:
       for line in body:
         html.append(line)
-    with open(str(themePath + "/footer.html"), "r") as footer:
+    with open("themePath}/footer.html", "r") as footer:
       for line in footer:
         html.append(line)
     html.append("</body>")
     html.append("</html>")
     f = open("index.html", "w")
     for item in html:
-      f.write(str(item + "\n"))
+      f.write("{item} \n")
     f.close()
