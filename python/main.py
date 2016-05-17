@@ -38,7 +38,17 @@ def help():
 
 def findCallType(argument):
   argument.pop(0)
-  if len(argument) == 2:
+  if len(argument) == 1:
+    if argument[0].title() == 'Spin':
+      try:
+        site = Site(os.getcwd().split('/').pop())
+        site.siteDraw()
+      except:
+        print("Error when generating HTML. Make sure you are in the root directory of your project when you call `pyder spin`. Refer to the docs for help.\n")
+        return
+    else: 
+      print(help())
+  elif len(argument) == 2:
     if argument[0].title() == 'New':
       newSite = Site(argument[1])
       newSite.directoryDraw()
