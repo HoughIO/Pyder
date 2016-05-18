@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import sys
 from builder import *
 from post_builder import *
