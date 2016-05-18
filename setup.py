@@ -1,6 +1,8 @@
 # setup file for Pyder
 # https://github.com/HoughIO/Pyder
 
+#NOTE: THIS FILE IS FOR PIP MANAGER AND IS A WORK IN PROGRESS. DO NOT USE THIS FILE TO INSTALL PYDER. Thanks. -G
+
 setup(
     name='Pyder',
     version='0.0.1',
